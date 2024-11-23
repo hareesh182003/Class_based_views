@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app.views import *
+from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Fbv_string/',Fbv_string,name='Fbv_string'),
@@ -29,4 +30,13 @@ urlpatterns = [
 
     path('insert_fbv/',insert_fbv,name='insert_fbv'),
     path('InsertCbv/',InsertCbv.as_view(),name='InsertCbv'),
+
+
+
+    path('RenderHtmlTV/',RenderHtmlTV.as_view(),name='RenderHtmlTV'),
+    path('DirectRender/',TemplateView.as_view(template_name = 'DirectRender.html'),name='DirectRender'),
+
+
+    path('RenderHtmlFV/',RenderHtmlFV.as_view(),name='RenderHtmlFV'),
+
 ]
